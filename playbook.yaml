@@ -1,0 +1,7 @@
+---
+
+- name: Deploy apache web server
+  hosts: group_hosts
+  become: yes
+  roles:
+    - apache-deployment-role

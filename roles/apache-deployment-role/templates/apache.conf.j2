@@ -1,0 +1,12 @@
+ServerName {{ apache_server_name }} 
+DocumentRoot {{ apache_document_root_directory }}
+<Directory {{ apache_document_root_directory }}>
+	AllowOverride None
+	Options Indexes FollowSymLinks
+	Require all denied
+
+	# ALlow access from specified IPs
+	{% for ip in allowed_ips %}
+	Require ip {{ ip }} 
+	{% endfor %}
+</Directory>
